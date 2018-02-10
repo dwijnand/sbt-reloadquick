@@ -11,8 +11,8 @@ on_the_master_branch=$?
 ]]
 on_a_tag=$?
 
-if [[ $on_the_master_branch == 0 || $on_a_tag == 0 ]]; then
-  PUBLISH=publishLocal # publish
+if [[ $on_a_tag == 0 ]]; then
+  PUBLISH=publish
 else
   PUBLISH=publishLocal
 fi
