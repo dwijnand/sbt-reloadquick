@@ -32,7 +32,7 @@ def toSbtPlugin(m: ModuleID) = Def.setting(
   Defaults.sbtPluginExtra(m, (pluginCrossBuild / sbtBinaryVersion).value, (update / scalaBinaryVersion).value)
 )
 
-mimaPreviousArtifacts := Set.empty // Set(toSbtPlugin("com.dwijnand" % "sbt-reloadquick" % "1.0.0").value)
+mimaPreviousArtifacts := Set(toSbtPlugin("com.dwijnand" % "sbt-reloadquick" % "1.0.0").value)
 
 import com.typesafe.tools.mima.core._, ProblemFilters._
 mimaBinaryIssueFilters ++= Seq()
