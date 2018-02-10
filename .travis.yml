@@ -1,0 +1,29 @@
+language: scala
+jdk: oraclejdk8
+script: project/travis.sh
+
+# Build only master and version tags - http://stackoverflow.com/a/31882307/463761
+branches:
+  only:
+    - master
+    - /^v[0-9]/
+
+env:
+  global:
+    - COURSIER_PROGRESS=0
+    - secure: kS7360xPyj6w464OwvvRIZetm/a3CR2M+Jp5/I2mX31hrNpqmzfzbz6FPqbegtJ1qSPVXzKOWN5Zi7xY46w/1r9f5tgOzY9hI5V9MYi0sBrtuLfe26PeEWI+Bymwx7xBHLaC38LTSTraq699bJ0uiQl04tPMvd3qQeHXge1CzcSsUWk+KlF+vlPeklw0IOKosohGewH4jPvYwkOucdVvkXTq0hBemFGCxHahsh3TrfKoBTspZ71hwOlUsrJgJwpqrM/Q8dfcM60P7P0KZ96ZvSK8fVw3miQ5zi8VzqKAMKCWeoWj2rpzShqskMqzchN5K7X3dFjua9KBP1swDLU8j+b5HpSF3suqZgnjq4v/I81p7Cg6gBwO1D+qqIuxHkNQoPUlqvlTQ1d3MScp2NhMjpskVqSeNdeRkhArmwwPge/ENFPDHQtGlCqeP9odocrv2F0H8V4/fSrbBn4oHJBlfDlPOGuMigbHJF8K8ucDpLjF1xg5EvYgpvDxi87JPMql/hJjg/r602jCa94JV9AA8ADX9xpTVYgEZ7LLvM/TNnVIGoEpMRc+z7Vjod1kjM2mvebN0onvr602XKFWPFj92tiRp72csGKCqDqkHP1ootYlvWvOf+EcrCbQQ3u2YubK07qVzJi9ohRxs1xEOjTySelo1d57qGv3at4bPn7i4YE=
+    - secure: qSQsDk7gzqRshhWO6g/YQkOtYiZGM4xunYuvmIskMlHQ7YgumEVjkPzJDJREG23Be4i2BVxhSGnp0jRXak8N6nEnJSOfkOlT/FbJ/6hSsyz8hPydaf/AMJqZzO30j+FeHfUxBYqNQyaBixwECrgDfRLVglOij2ATLH4ptdb3quRsg/aZChkPa5JoShXhkU9j3Ydc04RVVe4yEdHP3Wlb9OeaoaU8aKnnTGNW2Dz1uAUCd8V0m8Y3QiZ7AySIL25S79h5rBmD0iqA0J5rMlHko2ep4rYucVh1OSxzv4vgrFl30Pu+Rc0WBXrpBFsNvtivs5PpMIWJTBj2q4ztz/+J+kNQml9z+hKBpkqmxz1r0wn5P2QDTcJ/3fNcHfidmkVHlRZbyIsglojCDStOtShsWqPKTwxA9HFO+Q2VyMLBRRMbwMkngkuDTnV3lDmc7tx4RE2JPp8ww+Q8OETZm5Q4ngqLmrmC0fxPmNfs70WlWVCTVR6oRlcgh0rhh6ha4fx/MyAOWeIMvBD3Fl4c6KhL6+sV89alfahcZJ6MArbEcZ1Wdy8/gUqHkm26ywYXq0glU215SdRmsOTJqYbQtGFBpz1MDqrLh4p0sGFzn6MqFEe8uU9QciLQJFW2WkU1zFZfEjwK9JQfJjesemIQgPdEP6tACWTm2tB7/54GMxHx2Kw=
+
+cache:
+  directories:
+    - $HOME/.coursier
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt
+
+before_cache:
+  - find $HOME/.ivy2/cache -name "ivydata-*.properties" -delete
+  - find $HOME/.sbt        -name "*.lock"               -delete
+
+notifications:
+  email:
+    on_success: never
