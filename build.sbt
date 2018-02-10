@@ -1,7 +1,6 @@
-val sbtreloadquick = project in file(".")
+val sbtreloadquick = project in file(".") settings (name := "sbt-reloadquick")
 
 ThisBuild / organization := "com.dwijnand"
-ThisBuild / name         := "sbt-reloadquick"
 ThisBuild / licenses     := Seq("Apache-2.0" -> url("https://www.apache.org/licenses/LICENSE-2.0"))
 ThisBuild / description  := "An sbt plugin to cache 'reload' to make it quick"
 ThisBuild / developers   := List(Developer("dwijnand", "Dale Wijnand", "dale wijnand gmail com", url("https://dwijnand.com")))
