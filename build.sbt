@@ -12,7 +12,7 @@ ThisBuild / scmInfo      := Some(ScmInfo(url("https://github.com/dwijnand/sbt-re
 Global / sbtVersion  := "1.0.0" // must be Global, otherwise ^^ won't change anything
     crossSbtVersions := List("1.0.0")
 
-ThisBuild / scalaVersion := "2.12.15"
+ThisBuild / scalaVersion := "2.12.18"
 
        maxErrors := 15
 triggeredMessage := Watched.clearWhenTriggered
